@@ -2,10 +2,7 @@ package technikal.task.fishmarket.controllers;
 
 
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +57,16 @@ public class FishController {
 
 				for(FishImage fishImage : fish.getFishImages()) {
 					Path imagePath = Paths.get("public/images/" + fishImage.getImageFileName());
-					Files.delete(imagePath);
+
+					try {
+						Files.delete(imagePath);
+					}
+//					catch (NoSuchFileException e) {
+//						System.out.println("Exception: " + e.getMessage());
+//					}
+					catch (Exception e) {
+						System.out.println("Exception: " + e.getMessage());
+					}
 				}
 
 				repo.delete(fish);
