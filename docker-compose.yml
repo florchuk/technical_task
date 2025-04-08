@@ -1,0 +1,12 @@
+services:
+  mysql:
+    build: ./mysql
+    container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/var/lib/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=fishstore
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Europe/Kyiv
