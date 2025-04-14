@@ -1,1 +1,1 @@
-https://github.com/botagrotep/technical_task.git
+Завдання: https://github.com/botagrotep/technical_task.git
